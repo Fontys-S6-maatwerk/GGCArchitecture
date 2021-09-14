@@ -31,8 +31,9 @@ System_Boundary(s_ggc, "GGC") {
     Container(c_twitterDataService, "Twitter data service")
 }
 
-System_Ext(s_socialMedia, "Social media")
-System_Ext(s_twitter, "Twitter")
+System_Ext(s_socialMedia, "Social media") {
+    System_Ext(s_twitter, "Twitter")
+}
 System_Ext(s_ecodorpSensors, "Ecodorp sensors")
 System_Ext(s_weatherdataAPI, "Weather data API")
 System_Ext(s_achmeaCosts, "Achmea costs")
@@ -43,7 +44,7 @@ Rel_D(c_rtrWebsite, c_rtrGateway, "")
 Rel_D(c_ggcWebsite, c_ggcGateway, "")
 
 'Twitter bot relations
-Rel(c_twitterBotService, s_twitter, "Posts to")
+Rel(c_twitterBotService, s_twitter, "Posts content to")
 Rel(c_twitterBotService, c_twitterDataService, "Recieves data")
 
 'RTR gateway relations
@@ -81,6 +82,10 @@ Rel(c_achievementService, c_notificationService, "Pushes achievement notificatio
 Rel(c_followerService, c_notificationService, "Pushes following notifications to")
 Rel(c_solutionService, c_notificationService, "Pushes like notifications to")
 
+'Social media relations
+Rel(c_ggcWebsite, s_socialMedia, "Share content via", "HTTPS")
+Rel(c_rtrWebsite, s_socialMedia, "Share content via", "HTTPS")
+
 /'
 Comments Maxime:
 
@@ -88,7 +93,6 @@ Uncertainties
 - how do I add a message bus?
 - does ggc use follower service?
 - is twitterDataService just aggregating data for twitterbot?
-- what posts to social media again?
 - what services listen to the message bus and what services post to it?
 
 TODO:
