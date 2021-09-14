@@ -14,6 +14,7 @@ System_Ext(s_twitter, "Twitter")
 System_Ext(s_ecodorpSensors, "Ecodorp sensors")
 System_Ext(s_weatherdataAPI, "Weather data API")
 System_Ext(s_achmeaCosts, "Achmea costs")
+System_Ext(s_emailService, "external mail service")
 
 Rel_D(p_admin, s_ggc, "Manages")
 Rel_D(p_contentWriter, s_ggc, "Uses")
@@ -26,4 +27,5 @@ Rel(s_ggc, s_socialMedia, "Posts to")
 Rel(s_ggc, s_weatherdataAPI, "Pulls data from")
 Rel(s_ggc, s_twitter, "Bot posts to")
 Rel(s_ggc, s_achmeaCosts, "Pulls data from")
+Rel(s_ggc, s_emailService, "Sends mails on request")
 @enduml
