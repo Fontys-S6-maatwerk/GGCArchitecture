@@ -1,0 +1,98 @@
+@startuml C1 GGC
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(p_admin, "Administrator")
+Person(p_visitor, "Visitor")
+Person(p_contentWriter, "Content writer")
+Person(p_moderator, "Moderator")
+Person(p_translationReviewer, "Translation reviewer")
+
+System_Boundary(s_ggc, "GGC") {
+    Container(c_rtrWebsite, "RTR website")
+    Container(c_ggcWebsite, "GGC website")
+    Container(c_rtrGateway, "RTR Gateway")
+    Container(c_ggcGateway, "GGC Gateway")
+    Container(c_authService, "Authentication service")
+    Container(c_solutionService, "Solution service")
+    Container(C_userService, "User service")
+    Container(c_achievementService, "Achievement service")
+    Container(c_blogService, "Blog service")
+    Container(c_impactCalculationService, "Impact calculation service")
+    Container(c_twitterBotService, "Twitter bot service")
+    Container(c_notificationService, "Notification service")
+    Container(c_followerService, "Follower service")
+    Container(c_commentService, "Comment service")
+
+    Container(messagebus, "Messagebus")
+    
+    Container(c_newsletterService, "Newsletter service")
+    Container(c_achmeaDataService, "Achmea data service")
+    Container(c_weatherDataService, "Weather data service")
+    Container(c_twitterDataService, "Twitter data service")
+}
+
+System_Ext(s_socialMedia, "Social media")
+System_Ext(s_twitter, "Twitter")
+System_Ext(s_ecodorpSensors, "Ecodorp sensors")
+System_Ext(s_weatherdataAPI, "Weather data API")
+System_Ext(s_achmeaCosts, "Achmea costs")
+System_Ext(s_emailService, "Email service")
+
+'Website relations
+Rel_D(c_rtrWebsite, c_rtrGateway, "")
+Rel_D(c_ggcWebsite, c_ggcGateway, "")
+
+'Twitter bot relations
+Rel(c_twitterBotService, s_twitter, "Posts to")
+Rel(c_twitterBotService, c_twitterDataService, "Recieves data")
+
+'RTR gateway relations
+Rel(c_rtrGateway, c_commentService, "")
+Rel(c_rtrGateway, c_solutionService, "")
+Rel(c_rtrGateway, C_userService, "")
+Rel(c_rtrGateway, c_followerService, "")
+Rel(c_rtrGateway, c_blogService, "")
+Rel(c_rtrGateway, c_authService, "")
+Rel(c_rtrGateway, c_achievementService, "")
+
+'GGC Gateway relations
+Rel(c_ggcGateway, c_notificationService, "")
+Rel(c_ggcGateway, c_solutionService, "")
+Rel(c_ggcGateway, C_userService, "")
+Rel(c_ggcGateway, c_impactCalculationService, "")
+Rel(c_ggcGateway, c_authService, "")
+
+'data aggregation relations
+Rel(c_weatherDataService, s_weatherdataAPI, "")
+Rel(c_newsletterService, s_emailService, "")
+Rel(c_twitterDataService, s_ecodorpSensors, "")
+Rel(c_achmeaDataService, s_achmeaCosts, "")
+
+Rel_D(p_admin, c_ggcWebsite, "Manages")
+Rel_D(p_admin, c_rtrWebsite, "Manages")
+Rel_D(p_contentWriter, c_rtrWebsite, "Uses")
+Rel_D(p_moderator, c_rtrWebsite, "Manages")
+Rel_D(p_visitor, c_rtrWebsite, "Uses")
+Rel_D(p_visitor, c_ggcWebsite, "Uses")
+Rel_D(p_translationReviewer, c_ggcWebsite, "Uses")
+
+/'
+Comments Maxime:
+
+Uncertainties
+- What uses the notification service? (i assumed GGC gateway)
+- how do I add a message bus?
+- does ggc use follower service?
+- is twitterDataService just aggregating data for twitterbot? 
+- what posts to social media again?
+- what services listen to the message bus and what services post to it?
+
+TODO:
+- review everything (check for missing relations or incorrect relations)
+- add comments to relations
+- add techniques used per container
+- check for spelling
+- place the messagebus between domain services and data aggregation services
+'/
+
+@enduml
