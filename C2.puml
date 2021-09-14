@@ -56,7 +56,7 @@ Rel(c_rtrGateway, c_authService, "")
 Rel(c_rtrGateway, c_achievementService, "")
 
 'GGC Gateway relations
-Rel(c_ggcGateway, c_notificationService, "")
+Rel(c_ggcGateway, c_notificationService, "Fetches notifications from")
 Rel(c_ggcGateway, c_solutionService, "")
 Rel(c_ggcGateway, C_userService, "")
 Rel(c_ggcGateway, c_impactCalculationService, "")
@@ -76,14 +76,18 @@ Rel_D(p_visitor, c_rtrWebsite, "Uses")
 Rel_D(p_visitor, c_ggcWebsite, "Uses")
 Rel_D(p_translationReviewer, c_ggcWebsite, "Uses")
 
+'Notification Service relations
+Rel(c_achievementService, c_notificationService, "Pushes achievement notifications to")
+Rel(c_followerService, c_notificationService, "Pushes following notifications to")
+Rel(c_solutionService, c_notificationService, "Pushes like notifications to")
+
 /'
 Comments Maxime:
 
 Uncertainties
-- What uses the notification service? (i assumed GGC gateway)
 - how do I add a message bus?
 - does ggc use follower service?
-- is twitterDataService just aggregating data for twitterbot? 
+- is twitterDataService just aggregating data for twitterbot?
 - what posts to social media again?
 - what services listen to the message bus and what services post to it?
 
