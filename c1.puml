@@ -1,1 +1,29 @@
-wokkels zijn lekker
+@startuml C1 GGC
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+Person(p_admin, "Administrator")
+Person(p_visitor, "Visitor")
+Person(p_contentWriter, "Content writer")
+Person(p_moderator, "Moderator")
+Person(p_translationReviewer, "Translation reviewer")
+
+System(s_ggc, "GGC", "The entire GGC landscape")
+
+System_Ext(s_socialMedia, "Social media")
+System_Ext(s_twitter, "Twitter")
+System_Ext(s_ecodorpSensors, "Ecodorp sensors")
+System_Ext(s_weatherdataAPI, "Weather data API")
+System_Ext(s_achmeaCosts, "Achmea costs")
+
+Rel_D(p_admin, s_ggc, "Manages")
+Rel_D(p_contentWriter, s_ggc, "Uses")
+Rel_D(p_moderator, s_ggc, "Manages")
+Rel_D(p_visitor, s_ggc, "Uses")
+Rel_D(p_translationReviewer, s_ggc, "Uses")
+
+Rel(s_ggc, s_ecodorpSensors, "Recieves data from")
+Rel(s_ggc, s_socialMedia, "Posts to")
+Rel(s_ggc, s_weatherdataAPI, "Pulls data from")
+Rel(s_ggc, s_twitter, "Bot posts to")
+Rel(s_ggc, s_achmeaCosts, "Pulls data from")
+@enduml
