@@ -22,10 +22,8 @@ System_Boundary(s_ggc, "GGC") {
     Container(c_notificationService, "Notification service")
     Container(c_followerService, "Follower service")
     Container(c_commentService, "Comment service")
-
-    Container(messagebus, "Messagebus")
+    Container(c_ecodorpDataService, "Comment service")
     
-    Container(c_newsletterService, "Newsletter service")
     Container(c_achmeaDataService, "Achmea data service")
     Container(c_weatherDataService, "Weather data service")
     Container(c_twitterDataService, "Twitter data service")
@@ -37,7 +35,6 @@ System_Ext(s_socialMedia, "Social media") {
 System_Ext(s_ecodorpSensors, "Ecodorp sensors")
 System_Ext(s_weatherdataAPI, "Weather data API")
 System_Ext(s_achmeaCosts, "Achmea costs")
-System_Ext(s_emailService, "Email service")
 
 'Website relations
 Rel_D(c_rtrWebsite, c_rtrGateway, "")
@@ -62,11 +59,12 @@ Rel(c_ggcGateway, c_solutionService, "")
 Rel(c_ggcGateway, C_userService, "")
 Rel(c_ggcGateway, c_impactCalculationService, "")
 Rel(c_ggcGateway, c_authService, "")
+Rel(c_ggcGateway, c_achievementService, "")
+Rel(c_ggcGateway, c_followerService, "")
 
 'data aggregation relations
 Rel(c_weatherDataService, s_weatherdataAPI, "")
-Rel(c_newsletterService, s_emailService, "")
-Rel(c_twitterDataService, s_ecodorpSensors, "")
+Rel(c_twitterDataService, s_twitter, "")
 Rel(c_achmeaDataService, s_achmeaCosts, "")
 
 Rel_D(p_admin, c_ggcWebsite, "Manages")
@@ -86,21 +84,19 @@ Rel(c_solutionService, c_notificationService, "Pushes like notifications to")
 Rel(c_ggcWebsite, s_socialMedia, "Share content via", "HTTPS")
 Rel(c_rtrWebsite, s_socialMedia, "Share content via", "HTTPS")
 
+Rel(c_impactCalculationService, c_achmeaDataService, "")
+Rel(c_impactCalculationService, c_solutionService, "")
+
+Rel(c_twitterBotService, c_weatherDataService, "")
+Rel(c_twitterBotService, c_ecodorpDataService, "")
+Rel(c_ecodorpDataService, s_ecodorpSensors, "")
+
 /'
-Comments Maxime:
-
-Uncertainties
-- how do I add a message bus?
-- does ggc use follower service?
-- is twitterDataService just aggregating data for twitterbot?
-- what services listen to the message bus and what services post to it?
-
 TODO:
 - review everything (check for missing relations or incorrect relations)
 - add comments to relations
 - add techniques used per container
 - check for spelling
-- place the messagebus between domain services and data aggregation services
 '/
 
 @enduml
