@@ -11,7 +11,7 @@ EcoDorp Boekel is de opdrachtgever van dit project. Zij hebben Ad Vissers naar v
 
 ## Microservices
 
-De PO heeft aangegeven dat het uitgangspunt voor het project is dat het voor geheel Europa wordt uitgerold en dat het veel bezoekers aankan. Voor de beeldvorming werd in de openingspresentatie een bezoekersaantal van 4.000.000.000 (vier biljard) bezoekers genoemd voor de Race to Resilience app alleen. Op basis van deze specificaties is het architecture board — een groep van ontwikkelaars uit alle vier scrumteams — tot de conclusie gekomen dat een microservice architectuur benodigd is om de benodigde verticale schaalbaarheid te behalen.
+De PO heeft aangegeven dat het uitgangspunt voor het project is dat het voor geheel Europa wordt uitgerold en dat het veel bezoekers aankan. Voor de beeldvorming werd in de openingspresentatie een bezoekersaantal van 4.000.000.000 (vier miljard) bezoekers genoemd voor de Race to Resilience app alleen. Op basis van deze specificaties is het architecture board — een groep van ontwikkelaars uit alle vier scrumteams — tot de conclusie gekomen dat een microservice architectuur benodigd is om de benodigde verticale schaalbaarheid te behalen.
 
 Het project is opgedeeld in 20 verschillende services, waarvan twee frontends (GGC website en RtR web app), twee bijbehorende gateways en zestien backend microservices. Deze communiceren voornamelijk via het HTTPS protocol en een message queue (zie kopje 'technologiekeuze'). Daarnaast zijn er vijf externe API's waar enkele van deze services mee communiceren.Onderstaand diagram toont hoe deze services aan elkaar gekoppeld zijn.
 
