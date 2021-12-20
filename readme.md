@@ -65,3 +65,7 @@ Voor asynchrone communicatie wordt een message bus gebruikt. Microservices pushe
 Voor de message queue is **[RabbitMQ](https://www.rabbitmq.com/)** gekozen. Deze behoort samen met [Kafka](https://kafka.apache.org/) tot de grootste messaging queues, maar heeft als voordeel dat het toegankelijker en meer lightweight is. Daarnaast heeft het een hogere performance, is het acknowledge based en is er geen payload size limiet.
 
 Er is gekozen om _geen_ gebruik te maken van het [gRPC protocol](https://grpc.io/). Het protocol is door het projectteam onderzocht, maar hoewel veel gebruikt in microservices als ongeschikt bevonden voor dit project. Reden is dat het definiëren van protocol buffers extra overhead en ontwikkeltijd kost, terwijl de tijdwinst die dit protocol oplevert beperkt is bij het soort data dat gebruikt wordt in dit project. Het gaat daarbij vaak om kleine stukjes data. Daarnaast is de hoeveelheid gebruikers die in eerste instantie gebruik zullen maken van het GGC platform naar schatting beperkt.
+
+## Deployment
+
+Het project is ontwikkeld om in het Kubernetes platform te draaien. Hiervoor zijn configuratiebestanden beschikbaar, waarmee de individuele services als container images worden opgehaald en uitgevoerd op een willekeurige Kubernetes instantie. Deze configuratie en documentatie over de te nemen handelingen kan worden gevonden in de [deployment repository](https://github.com/Fontys-S6-maatwerk/Deployment).
