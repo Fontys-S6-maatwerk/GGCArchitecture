@@ -22,8 +22,8 @@ Onderstaande lijst verwijst naar een beschrijving van elke microservice:
 | Service                | Type         | Beschrijving                                         | Repository                                                                |
 -------------------------|--------------|------------------------------------------------------|---------------------------------------------------------------------------|
 | RtR website            | Frontend     | [Beschrijving](./services/rtr-website.md)            | [Repository](https://github.com/Fontys-S6-maatwerk/RTRApp)                |
-| RtR gateway            | Gateway      | [Beschrijving](./services/rtr-gateway.md)            | [Repository](https://github.com/Fontys-S6-maatwerk/RTRGateway)            |
 | GGC website            | Frontend     | [Beschrijving](./services/ggc-website.md)            | [Repository](https://github.com/Fontys-S6-maatwerk/GgcWebsite)            |
+| RtR gateway            | Gateway      | [Beschrijving](./services/rtr-gateway.md)            | [Repository](https://github.com/Fontys-S6-maatwerk/RTRGateway)            |
 | GGC gateway            | Gateway      | [Beschrijving](./services/ggc-gateway.md)            | [Repository](https://github.com/Fontys-S6-maatwerk/GGCGateway)            |
 | Blog Service           | Microservice | [Beschrijving](./services/blog-service.md)           | Niet geïmplementeerd                                                      |
 | Comment Service        | Microservice | [Beschrijving](./services/comment-service.md)        | [Repository](https://github.com/Fontys-S6-maatwerk/CommentService)        |
@@ -31,7 +31,7 @@ Onderstaande lijst verwijst naar een beschrijving van elke microservice:
 | Authentication Service | Microservice | [Beschrijving](./services/authentication-service.md) | [Repository](https://github.com/Fontys-S6-maatwerk/AuthenticationService) |
 | User Service           | Microservice | [Beschrijving](./services/user-service.md)           | [Repository](https://github.com/Fontys-S6-maatwerk/UserService)           |
 | Follower service       | Microservice | [Beschrijving](./services/follower-service.md)       | [Repository](https://github.com/Fontys-S6-maatwerk/FollowerService)       |
-| Solution service      | Microservice | [Beschrijving](./services/solution-service.md)      | [Repository](https://github.com/Fontys-S6-maatwerk/SolutionsService)      |
+| Solution service       | Microservice | [Beschrijving](./services/solution-service.md)       | [Repository](https://github.com/Fontys-S6-maatwerk/SolutionsService)      |
 | Notification service   | Microservice | [Beschrijving](./services/notification-service.md)   | [Repository](https://github.com/Fontys-S6-maatwerk/NotificationService)   |
 | Poll service           | Microservice | [Beschrijving](./services/poll-service.md)           | Niet geïmplementeerd                                                      |
 | Impact service         | Microservice | [Beschrijving](./services/impact-service.md)         | [Repository](https://github.com/Fontys-S6-maatwerk/ImpactCalcService)     |
