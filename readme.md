@@ -9,6 +9,10 @@ Deze repository bevat uitleg en diagrammen over de architectuur van het Global G
 
 EcoDorp Boekel is de opdrachtgever van dit project. Zij hebben Ad Vissers naar voren geschoven als Product Owner (PO), en alle communicatie tussen de vier scrumteams en EcoDorp Boekel verlopen via hem.
 
+## Requirements
+
+De functionaliteit en de services in dit project zijn gebaseerd op de MoSCoW-lijsten die per applicatie zijn aangeleverd (GGC website, RtR-app, EcoBob en information dashboard). Deze zijn door de projectgroep omgezet in user stories. Deze zijn [hier](./user-stories.md) te vinden.
+
 ## Microservices
 
 De PO heeft aangegeven dat het uitgangspunt voor het project is dat het voor geheel Europa wordt uitgerold en dat het veel bezoekers aankan. Voor de beeldvorming werd in de openingspresentatie een bezoekersaantal van 4.000.000.000 (vier miljard) bezoekers genoemd voor de Race to Resilience app alleen. Op basis van deze specificaties is het architecture board — een groep van ontwikkelaars uit alle vier scrumteams — tot de conclusie gekomen dat een microservice architectuur benodigd is om de benodigde verticale schaalbaarheid te behalen.
