@@ -20,4 +20,19 @@ De functionaliteit en de services in dit project zijn gebaseerd op de MoSCoW-lij
 
 ## Information Dashboard
 
+- Als een gebruiker wil ik een lijst van oplossingen kunnen krijgen zodat ik daar doorheen kan lezen en de geposte oplossingen kan uitproberen.
+- Als een gebruiker wil ik een lijst van SDGs (Sustainable Development Goals) kunnen krijgen zodat ik kan weten op het behalen van welke doelen bepaalde oplossingen gericht zijn.
+- Als een gebruiker wil ik de oplossingen in het Engels en Nederlands vertaald kunnen lezen zodat ik de content kan lezen in een taal die ik beter spreek.
+- Als een gebruiker wil ik vertalingen van oplossingen submitten in mijn taal zodat andere mensen die mijn taal spreken de oplossingen ook kunnen lezen.
+- Als een geregistreerde gebruiker van de GGC website wil ik oplossingen kunnen posten zodat ik mijn inzichten in het behalen van de SDGs kan delen met andere gebruikers.
+- Als een geregistreerde gebruiker van de GGC website wil ik mijn oplossingen kunnen editen zodat ik ze kan verbeteren op spelfouten of de oplossing effectiever maken.
+- Als een geregistreerde gebruiker van de GGC website wil ik mijn oplossingen kunnen deleten zodat ik geen oplossingen hoef te delen waar ik niet meer achter sta of als er een betere bestaat.
+- Als een geregistreerde gebruiker van de GGC website wil ik andere solutions kunnen liken om andere gebruikers te laten weten dat hun oplossing goed is.
+- Als een geregistreerde gebruiker van de GGC website wil ik andere solutions kunnen unliken om gebruikers ervan op de hoogte te stellen dat de oplossing verbeterd kan worden.
+- Als een geregistreerde gebruiker van de GGC website wil ik kunnen zien hoe populair mijn oplossingen zijn om mijn persoonlijke impact op het behalen van de SDGs te kunnen meten.
+- Als een EU policy maker wil ik de oplossingen kunnen zien om in te zien wat hun gezamelijke impact is.
+- Als een EU policy maker wil ik de oplossingen per SDG kunnen zien om te zien hoeveel impact er is geweest op het behalen van de verschillende SDGs.
+- Als een administrator van de GGC website wil ik elke oplossing kunnen deleten zodat ik de regels van de GGC website kan handhaven.
+- Als een administrator van de GGC website wil ik gesubmitte vertalingen reviewen zodat ik kan verifiëren of de vertaling klopt voordat het publiekelijk toegankelijk wordt.
+
 ## EcoHome Bob
