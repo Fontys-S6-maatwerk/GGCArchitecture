@@ -38,8 +38,8 @@ Onderstaande lijst verwijst naar een beschrijving van elke microservice:
 | Solution service       | Microservice | [Beschrijving](./services/solution-service.md)       | [Repository](https://github.com/Fontys-S6-maatwerk/SolutionsService)      |
 | Notification service   | Microservice | [Beschrijving](./services/notification-service.md)   | [Repository](https://github.com/Fontys-S6-maatwerk/NotificationService)   |
 | Poll service           | Microservice | [Beschrijving](./services/poll-service.md)           | Niet geïmplementeerd                                                      |
-| Impact service         | Microservice | [Beschrijving](./services/impact-service.md)         | [Repository](https://github.com/Fontys-S6-maatwerk/ImpactCalcService)     |
-| Achmea data service    | Microservice | [Beschrijving](./services/achmea-data-service.md)    | [Repository](https://github.com/Fontys-S6-maatwerk/AchmeaDataService)     |
+| Impact service         | Microservice | [Beschrijving](./services/impact-service.md)         | Niet geïmplementeerd                                                      |
+| Achmea data service    | Microservice | [Beschrijving](./services/achmea-data-service.md)    | Niet geïmplementeerd                                                      |
 | TwitterBot service     | Microservice | [Beschrijving](./services/twitterbot-service.md)     | [Repository](https://github.com/Fontys-S6-maatwerk/TwitterbotService)     |
 | Tweet service          | Microservice | [Beschrijving](./services/tweet-service.md)          | Niet geïmplementeerd                                                      |
 | Ecodorp data service   | Microservice | [Beschrijving](./services/ecodorp-data-service.md)   | Niet geïmplementeerd                                                      |
