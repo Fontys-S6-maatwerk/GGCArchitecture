@@ -72,4 +72,4 @@ Er is gekozen om _geen_ gebruik te maken van het [gRPC protocol](https://grpc.io
 
 ## Deployment
 
-Het project is ontwikkeld om in het Kubernetes platform te draaien. Hiervoor zijn configuratiebestanden beschikbaar, waarmee de individuele services als container images worden opgehaald en uitgevoerd op een willekeurige Kubernetes instantie. Deze configuratie en documentatie over de te nemen handelingen kan worden gevonden in de [deployment repository](https://github.com/Fontys-S6-maatwerk/Deployment).
+Het project is ontwikkeld om in het Kubernetes platform te draaien. Hiervoor zijn configuratiebestanden beschikbaar, waarmee de individuele services als container images worden opgehaald en uitgevoerd op een willekeurige Kubernetes instantie. Deze configuratie en documentatie over de te nemen handelingen is te vinden in de [deployment repository](https://github.com/Fontys-S6-maatwerk/Deployment).
