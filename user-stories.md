@@ -17,6 +17,24 @@ De functionaliteit en de services in dit project zijn gebaseerd op de MoSCoW-lij
 - Als admin wil ik kunnen zien wie vaak een solution deelt via social media zodat gevraagd kan worden of deze persoon community ambassadeur wil worden.
 
 ## Race to Resilience app
+- Als gebruiker wil ik tussen verschillende pagina's van solutions kunnen switchen
+- Als gebruiker wil ik weersextremen kunnen volgen
+- Als gebruiker wil ik andere gebruikers kunnen volgen
+- Als gebruiker wil ik andere gebruikers kunnen ontvolgen
+- Als gebruiker wil ik mijn eigen comments kunnen aanpassen
+- Als gebruiker wil ik mijn eigen comments kunnen verwijderen
+- Als gebruiker wil ik door mij gelikede posts terug kunnen vinden op mijn profiel
+- Als gebruiker wil ik gebruikers die ik volg terug kunnen vinden op mijn profiel
+- Als gebruiker wil ik gebruikers die mij volgen terug kunnen vinden op mijn profiel
+- Als gebruiker wil ik mijn eigen comments terug kunnen vinden op mijn profiel pagina
+- Als gebruiker wil ik solutions kunnen delen op andere social media
+- Als gebruiker wil ik op een wereldkaart zien waar content is geplaatst zodat ik globaal een overzicht heb van waar content wordt geplaatst
+- Als gebruiker wil ik een poll van de week kunnen zien zodat ik weet welke mening mensen hebben op verschillende onderwerpen
+- Als gebruiker wil ik "badges" kunnen verdeienen als gamification
+- Als gebruiker wil ik kunnen stemmen in een "poll of the week" 
+- Als gebruiker wil ik me kunnen uitschrijven
+
+Beheeplatform: Kijk naar MoSCoW van mobile development
 
 ## Information Dashboard
 
