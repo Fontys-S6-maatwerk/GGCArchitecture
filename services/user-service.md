@@ -1,8 +1,8 @@
 # User service
 
-De User Service beheerd het opslaan van alle user data die niet gebonden is aan de authenticatie. Vooral persoonlijke informatie (NAW, leeftijd, bio)
+De User Service beheert het opslaan van alle user data die niet gebonden is aan de authenticatie. Vooral persoonlijke informatie (NAW, leeftijd, bio)
 
-De User Service bevat API endpoints voor accesses van de user data. Ook luistered de user service naar een rabitmq message voor het aanmaken van een user. Dit is een bericht dat de authentication service aanmaakt.
+De User Service bevat API endpoints voor accesses van de user data. Ook luistert de user service naar een rabitmq message voor het aanmaken van een user. Dit is een bericht dat de authentication service aanmaakt.
 
 ## Technologie
 
