@@ -8,4 +8,4 @@ De gateway is gebouwd in C# middels het Dotnet framework en de plugin [Ocelot](h
 
 ## Repository
 
-De repository naar deze service is te vinden op https://github.com/Fontys-S6-maatwerk/RTRApp.
+De repository naar deze service is te vinden op https://github.com/Fontys-S6-maatwerk/RTRGateway.
