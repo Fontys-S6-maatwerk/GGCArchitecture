@@ -30,7 +30,7 @@ De functionaliteit en de services in dit project zijn gebaseerd op de MoSCoW-lij
 - Als gebruiker wil ik solutions kunnen delen op andere social media
 - Als gebruiker wil ik op een wereldkaart zien waar content is geplaatst zodat ik globaal een overzicht heb van waar content wordt geplaatst
 - Als gebruiker wil ik een poll van de week kunnen zien zodat ik weet welke mening mensen hebben op verschillende onderwerpen
-- Als gebruiker wil ik "badges" kunnen verdeienen als gamification
+- Als gebruiker wil ik "badges" kunnen verdienen als gamification
 - Als gebruiker wil ik kunnen stemmen in een "poll of the week" 
 - Als gebruiker wil ik me kunnen uitschrijven
 
