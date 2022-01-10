@@ -6,7 +6,7 @@ De User Service bevat API endpoints voor accesses van de user data. Ook luistere
 
 ## Technologie
 
-De authenticatie service is gebouwd met behulp van C# en het Dotnet- en Entity Framework. Dit laatste framework verzorgt de opslag in de database om zo de gebruikers te beheren.
+De user service is gebouwd met behulp van C# en het Dotnet- en Entity Framework. Dit laatste framework verzorgt de opslag in de database om zo de gebruikers te beheren.
 
 ## Repository
 
