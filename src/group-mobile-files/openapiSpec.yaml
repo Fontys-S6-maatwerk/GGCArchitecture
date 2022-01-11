@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
     title: RTR app
-    description:  This yaml contains the originally intended calls for the RTR app. these calls are not entirely accurate to what they are now but still give an idea of what calls the RTR app should be able to make.  
+    description:  This yaml contains the originally intended calls for the RTR app. these calls are not entirely accurate to what they are now but still give an idea of what calls the RTR app should be able to make. To view the file graphically, go to https://editor.swagger.io and paste it in.
     version: 1.0.0
 paths:
     /solutions:
@@ -727,7 +727,7 @@ components:
                 isLiked:
                     type: boolean
                 uploadDate: 
-                    type: long
+                    type: integer
                 viewCount:
                     type: integer
                 coverImage:
