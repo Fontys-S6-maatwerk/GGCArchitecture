@@ -1,0 +1,832 @@
+openapi: 3.0.2
+info:
+    title: RTR app
+    description:  The intended API calls for the RTR app
+    version: 1.0.0
+paths:
+    /solutions:
+        post:
+            operationId: createSolution
+            tags:
+                - Solution
+            summary: creates a new solution
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Solution'
+            responses:
+                '201':
+                    description: Solution created succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Solution'
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+        get: 
+            operationId: getSolutions
+            tags:
+                - Solution
+            summary: get a list of solutions (with nested users)
+            parameters:
+                -   name: q
+                    in: query
+                    description: if present search for this query
+                    schema: 
+                        type: string
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+                -   name: weatherExtremeType
+                    in: query
+                    schema:
+                        type: string
+                -   name: solutionType
+                    in: query
+                    schema: 
+                        type: string
+                -   name: sortBy
+                    in: query
+                    schema:
+                        type: string
+            responses:
+                '200':
+                    description: A page of solutions
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SolutionPageResponse'
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+    /solutions/{id}:
+        get: 
+            operationId: getSolution
+            tags:
+                - Solution
+            summary: get a solution with the specified  (with nested users)
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the requested solution
+                    schema: 
+                        type: string
+                        format: guid
+            responses:
+                '200':
+                    description: Solution retrieved succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Solution'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+        put:
+            operationId: updateSolution
+            tags:
+                - Solution
+            summary: update a solution with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Solution'
+            responses:
+                '200':
+                    description: Solution created succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Solution'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+        delete:
+            operationId: deleteSolution
+            tags: 
+                - Solution
+            summary: delete a solution with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Solution deleted succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+        patch:
+            operationId: updateCount
+            tags:
+                - Solution
+            summary: count view count up by one
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Solution patched succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+    /solutions/{id}/likes/{userId}:
+        post:
+            operationId: likeSolution
+            tags:
+                - Solution
+            summary: user with specified id likes a solution with specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+                -   name: userId
+                    in: path
+                    description: the id of the specified user
+                    required: true
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Solution liked succesfully
+                '400':
+                    description: Not a valid request ids incorrect or already liked
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+        delete:
+            operationId: unlikeSolution
+            tags:
+                - Solution
+            summary: user with specified id unlikes a solution with specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+                -   name: userId
+                    in: path
+                    description: the id of the specified user
+                    required: true
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Solution unliked succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+    /solutions/user/{id}:
+        get: 
+            operationId: getUserSolutions
+            tags:
+                - Solution
+            summary: get a list of solutions belonging to the user with specified id (with nested users)
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified solution
+                    schema:
+                        type: string
+                        format: guid
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+            responses:
+                '200':
+                    description: A page of solutions
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SolutionPageResponse'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with specified id was not found
+                default:
+                    description: Unexpected error
+    /solutions/liked/user/{id}:
+        get: 
+            operationId: getLikedSolutions
+            tags:
+                - Solution
+            summary: Get a list of solutions liked by the user with the specified id (with nested users)
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+            responses:
+                '200':
+                    description: A page of solutions
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SolutionPageResponse'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with specified id was not found
+                default:
+                    description: Unexpected error
+    /solutions/following/user/{id}:
+        get: 
+            operationId: getFeedSolutions
+            tags:
+                - Solution
+            summary: Get a list of solutions posted by people and topics the user with the specified id follows (with nested users) 
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+                -   name: sortBy
+                    in: query
+                    schema:
+                        type: string
+            responses:
+                '200':
+                    description: A page of solutions
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SolutionPageResponse'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with specified id was not found
+                default:
+                    description: Unexpected error
+    /comments:
+        post:
+            operationId: createComment
+            tags:
+                - Comment
+            summary: creates a new comment
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comment'
+            responses:
+                '201':
+                    description: Comment created succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+    /comments/{id}:
+        put:
+            operationId: updateComment
+            tags:
+                - Comment
+            summary: update a comment with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comment'
+            responses:
+                '200':
+                    description: Comment updated succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Comment with the specified id not found
+                default:
+                    description: Unexpected error
+        delete:
+            operationId: deleteComment
+            tags: 
+                - Comment
+            summary: delete a comment with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: Comment deleted succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with the specified id not found
+                default:
+                    description: Unexpected error
+    /comments/solutions/{solutionId}:
+        get:
+            operationId: getCommentsBySolution
+            tags:
+                - Comment
+            summary: retrieves a paginated list of comments belonging to a solution with the specified id  (with nested users)
+            parameters:
+                -   name: solutionId
+                    in: path
+                    required: true
+                    description: the id of the specified comment
+                    schema:
+                        type: string
+                        format: guid
+                -   name: pageNumber
+                    in: query
+                    description: pagination number of page to retrieve
+                    schema:
+                        type: integer
+                        minimum: 0
+                        default: 0
+                -   name: pageSize
+                    in: query
+                    schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 50
+                        default: 20
+            responses:
+                '200':
+                    description: A page of comments
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CommentPageResponse'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: Solution with specified id was not found
+                default:
+                    description: Unexpected error
+    #work in progress
+    /auth/register:
+        post:
+            operationId: register
+            tags:
+                - Authentication
+            summary: register a new user (creates a new user object)
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+            responses:
+                '201':
+                    description: User registered succesfully
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+    /auth/login:
+        post:
+            operationId: login
+            tags:
+                - Authentication
+            summary: log a user in
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+            responses:
+                '201':
+                    description: User registered succesfully
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                '400':
+                    description: Not a valid request
+                default:
+                    description: Unexpected error
+    /user/{id}:
+        get: 
+            operationId: getUser
+            tags:
+                - User
+            summary: get a user with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the requested user
+                    schema: 
+                        type: string
+                        format: guid
+            responses:
+                '200':
+                    description: User retrieved succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/User'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with the specified id not found
+                default:
+                    description: Unexpected error
+        put:
+            operationId: updateUser
+            tags:
+                - User
+            summary: update a user with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/User'
+            responses:
+                '200':
+                    description: User created succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/User'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with the specified id not found
+                default:
+                    description: Unexpected error
+        delete:
+            operationId: deleteUser
+            tags: 
+                - User
+            summary: delete a user with the specified id
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: User deleted succesfully
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with the specified id not found
+                default:
+                    description: Unexpected error
+    /followers/users:
+        post:
+            operationId: followUser
+            tags:
+                - Follower
+            summary: create a follower relation between users
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FollowUserObj'
+            responses:
+                '204':
+                    description: User followed succesfully
+                '400':
+                    description: Not a valid request user is already followed
+                default:
+                    description: Unexpected error
+    /followers/{followerId}/users/{userId}:
+        delete:
+            operationId: unfollowUser
+            tags: 
+                - Follower
+            summary: delete a follower relation between users
+            parameters:
+                -   name: followerId
+                    in: path
+                    required: true
+                    description: the id of the specified follower
+                    schema:
+                        type: string
+                        format: guid
+                -   name: userId
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+            responses:
+                '204':
+                    description: User deleted succesfully
+                '400':
+                    description: Not a valid request user is not followed
+                '404':
+                    description: User with the specified id not found
+                default:
+                    description: Unexpected error
+    /followers/user/{userId}/weatherExtremes:
+        put:
+            operationId: updateFollowedWeatherExtremes
+            tags:
+                - Follower
+            summary: update followed weatherextremes
+            parameters:
+                -   name: userId
+                    in: path
+                    required: true
+                    description: the id of the specified user
+                    schema:
+                        type: string
+                        format: guid
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/WeatherExtremeList'
+            responses:
+                '200':
+                    description: updated succesfully
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/WeatherExtremeList'
+                '400':
+                    description: Not a valid request
+                '404':
+                    description: User with the specified id not found
+                default:
+                    description: Unexpected error
+components:
+    schemas:
+        Solution:
+            type: object
+            properties:
+                id: 
+                    type: string
+                    format: guid
+                name:
+                    type: string
+                introduction:
+                    type: string
+                weatherExtremeType:
+                    type: string
+                solutionType:
+                    type: string
+                difficulty:
+                    type: string
+                impactGoal: 
+                    type: integer
+                SDGType: 
+                    type: string
+                userId:
+                    type: string
+                    format: guid
+                user:
+                    $ref: '#/components/schemas/User'
+                currentImpact:
+                    type: integer
+                numberOfLikes:
+                    type: integer
+                isLiked:
+                    type: boolean
+                uploadDate: 
+                    type: long
+                viewCount:
+                    type: integer
+                coverImage:
+                    type: string
+                materials:
+                    type: array
+                    items:
+                        type: string
+                tools:
+                    type: array
+                    items:
+                        type: string
+                steps:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Step'
+        Step:
+            type: object
+            properties:
+                description:
+                    type: string
+                coverImage:
+                    type: string 
+        SolutionPageResponse:
+            type: object
+            properties:
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Solution'
+                totalPages: 
+                    type: integer
+                totalElements:
+                    type: integer
+        Comment:
+            type: object
+            properties:  
+                id: 
+                    type: string
+                    format: guid
+                content:
+                    type: string
+                userId: 
+                    type: string
+                    format: guid
+                user:
+                    $ref: '#/components/schemas/User'
+                solutionId:
+                    type: string
+                    format: guid
+        CommentPageResponse:
+            type: object
+            properties:
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Comment'
+                totalPages: 
+                    type: integer
+                totalElements:
+                    type: integer
+        User:
+            type: object
+            properties:
+                id: 
+                    type: string
+                    format: guid
+                username: 
+                    type: string
+                email:
+                    type: string
+                profileImage:
+                    type: string
+                isFollowed:
+                    type: boolean
+        WeatherExtremeList:
+            type: object
+            properties:
+                items:
+                    type: array
+                    items:
+                        type: string
+        FollowUserObj:
+            type: object
+            properties:
+                userId:
+                    type: string
+                    format: guid
+                followerId:
+                    type: string
+                    format: guid
+tags:
+    - name: Solution
+      description: Everything with maintaining solutions
+    - name: Comment
+      description: Everything with maintaining comments
+    - name: Authentication
+      description: Everything with Authentication
+    - name: User
+      description: Everything with maintaining Users
+    - name: Follower
+      description: Everything with Following users and topics
