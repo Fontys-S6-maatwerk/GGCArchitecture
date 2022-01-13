@@ -4,7 +4,7 @@ Deze service dient als toegangspoort voor de [GGC website](./ggc-website.md) naa
 
 ## Technologie
 
-De gateway is gebouwd in C# middels het Dotnet framework en de plugin [Ocelot](17.0.0)(https://github.com/ThreeMammals/Ocelot). Middels deze plugin kan een Dotnet API gemakkelijk worden gebruikt als API gateway door verschillende up- en downstream routes te definiëren.
+De gateway is gebouwd in C# middels het Dotnet framework en de plugin [Ocelot(17.0.0)](https://github.com/ThreeMammals/Ocelot). Middels deze plugin kan een Dotnet API gemakkelijk worden gebruikt als API gateway door verschillende up- en downstream routes te definiëren.
 
 ## Repository
 
