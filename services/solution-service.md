@@ -12,7 +12,7 @@ De gateway is gebouwd in C# middels het Dotnet framework. De Controller is opgeb
 
 ## Advies
 
-Veel van de Solution Service werkt naar behoren. We raden het sterk aan om Entity Framework te blijven gebruiken voor database-communicatie. De security benefits hiervan zijn onder andere dat de SQL calls sanitised zijn en het spaart veel development tijd om alles code-first te doen. Voor het genereren van Database Schemas is een code-first approach aangeraden om development van code binnen een taal te houden.
+Veel van de Solution Service werkt naar behoren. We raden het sterk aan om Entity Framework te blijven gebruiken voor database-communicatie. De security benefits hiervan zijn onder andere dat de SQL calls sanitised zijn en het spaart veel development tijd om alles code-first te doen. Voor het genereren van Database Schemas is een code-first approach aangeraden om development van code binnen een taal te houden. Er is nog geen koppeling gemaakt met een translation service voor de automatische vertaling van dynamische text in de gesubmitte Solutions: wel is er onderzoek gedaan over hoe deze worden gekoppeld. Deze is terug te lezen in het document onderzoek i18n (internationalisation) https://github.com/Fontys-S6-maatwerk/GGCArchitecture/blob/main/src/onderzoek%20i18n.docx
 
 ## Repository
 
