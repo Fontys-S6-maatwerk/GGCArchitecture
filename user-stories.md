@@ -54,3 +54,15 @@ Beheeplatform: Kijk naar MoSCoW van mobile development
 - Als een administrator van de GGC website wil ik gesubmitte vertalingen reviewen zodat ik kan verifiëren of de vertaling klopt voordat het publiekelijk toegankelijk wordt.
 
 ## EcoHome Bob
+
+- De bot kan tweets aanmaken. 
+- De bot tweet in het Engels. 
+- De bot kan data ophalen en verwerken van externe databron(nen), op zijn minst van @severeweatherEU. (Welke andere databronnen hierbij komen moet nog onderzoek naar worden gedaan.) 
+- Als botmanager kan ik de bot beheren.
+- De bot praat op een menselijke manier volgens het Ecodorp Brandboek. 
+- Afbeeldingen van Ecohome Bob worden toegevoegd aan de tweets. 
+- De bot maakt soms grappen in zijn tweets. 
+- De bot is in staat om relevante data verzamelen uit de meetpunten van het Ecodorp. 
+- Als botmanager kan ik tweet suggesties van de bot inzien en goedkeuren voordat ze geplaatst worden. 
+- De bot kan conclusies trekken uit data die publiciteit trekken. (Bijvoorbeeld bij tweets met veel likes en/of retweets) 
+- Als botmanager kan ik het tijdstip van wanneer te tweet wordt geplaatst aanpassen. 
