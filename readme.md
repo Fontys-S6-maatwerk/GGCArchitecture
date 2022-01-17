@@ -1,6 +1,6 @@
 # GGC architectuur
 
-Deze repository bevat uitleg en diagrammen over de architectuur van het Global Goals Community project. Dit project bevat:
+Deze repository bevat uitleg, diagrammen en [advies](#advies) over de [architectuur](#microservices) van het Global Goals Community project. Dit project bevat:
 
 - De website globalgoalscommunity.eu (GGC website), waar gebruikers oplossingen voor [Sustainable Development Goals (SDG) van de VN](https://sdgs.un.org/goals) kunnen delen met anderen;
 - [De Race to resilience app](https://github.com/Fontys-S6-maatwerk/RTRApp) (RtR), waar oplossingen specifiek voor [SDG 13 (klimaatactie)](https://sdgs.un.org/goals/goal13) gedeeld kunnen worden. Deze oplossingen worden gesynchroniseerd met de website.
@@ -77,3 +77,18 @@ Het project is ontwikkeld om in het Kubernetes platform te draaien. Hiervoor zij
 ## Onderzoek
 
 De vorige projectgroep adviseerde om een headless CMS te onderzoeken en implementeren. Dat onderzoek is door het huidige projectteam uitgevoerd, en het resultaat is te vinden in [dit document](./research-headless-cms.md).
+
+## Advies
+
+Tijdens de ontwikkeling van dit project is gebleken dat een microservice architectuur niet geschikt is voor de Global Goals Community. Microservices leveren een stabielere omgeving en zijn kostenefficiënt voor grote enterprise applicaties, maar de Global Goals Community voldoet hier in de komende jaren naar verwachting bij lange na niet aan.
+
+Het advies voor de doorontwikkeling luidt dan ook om de documentatie en de getrokken lessen van dit project goed door te nemen en deze informatie mee te nemen in de ontwikkeling van een monolitische backend. Dit kan in dezelfde [talen en met dezelfde frameworks die nu gebruikt en beschreven zijn](#talen), maar kunnen ook afwijken als daar goede redenen voor zijn. De website en race to resilience app kunnen beter nog steeds als aparte frontends worden opgebouwd. Gateways zijn niet noodzakelijk, aangezien de monoliet al een 'single point of entry' biedt.
+
+Enkele lessen die EcoDorp Boekel kan meenemen uit dit zijn o.a. maar niet uitsluitend:
+
+- Kosten en licenties voor hosting en software (zoals databases) is belangrijk. Een goede afweging van deze kosten en rechten is noodzakelijk.
+- Het automatisch vertalen van alle oplossingen die gebruikers aandragen kan het beste 'lazy' gedaan worden. Dat houdt in dat dit pas gebeurd zodra er vraag naar die vertaling is (lees: zodra een gebruiker de oplossing in die taal wil lezen). Het direct vertalen bij het aanmaken of wijzigen van oplossingen in tientallen talen kost veel moeite en - vooral indien uitbesteed aan een externe (cloud) service - geld.
+- Indien de software door verschillende (scrum) teams wordt ontwikkeld raden wij aan dat er een groep wordt gevormd waar uit elk team één persoon in plaats neemt.
+    - Deze groep moet elkaar minimaal wekelijks op de hoogte houden van de gemaakte voortgang, problemen waar men tegenaan loopt en afwegingen die gemaakt moeten worden
+    - Daarnaast moet die groep regelmatig - liefst wekelijks - met de PO overleggen en status-updates geven. Eventueel kunnen die twee besprekingen gecombineerd worden (PO is aanwezig bij wekelijkse bespreking van de groep).
+    - Tot slot is het van belang dat er een cultuur heerst onder de ontwikkelaars waarin men nieuwsgierig is naar de onderlinge voortgang. Kennisdelingssessies, groepsbindingsactiviteiten en onderlinge gesprekken kunnen deze cultuur bevorderen.
