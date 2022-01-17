@@ -9,3 +9,7 @@ De gateway is gebouwd in C# middels het Dotnet framework en de plugin [Ocelot(17
 ## Repository
 
 De repository naar deze service is te vinden op https://github.com/Fontys-S6-maatwerk/GGCGateway.
+
+## Advies
+
+Voor de GGC Gateway hebben we Ocelot Framework gebruikt voor het maken van de gateway endpoints. Dit heeft een aantal limitaties qua development: Ocelot kan geen composite requests aan en heeft daarvoor aparte composition services nodig. Dit zorgt ervoor dat in microservice architectuur er veel meer aparte service-componenten erbij komen. Voor het overzetten van de applicatie naar een monoliet zal Ocelot en een hele gateway eigenlijk niet meer nodig zijn.
